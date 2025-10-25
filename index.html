@@ -1,258 +1,259 @@
-<!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Andrei Habliuc | Web3 Profile</title>
   <meta name="description" content="Andrei Habliuc • Ethereum Builder • Smart Contracts & DApps" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#0c1212" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0a0a0a; --text:#e0ffe0; --brand:#00ffcc; --brand-weak:#00ffcc50;
-      --card-bg:#0f1616; --muted:#a7ffea; --ring:rgba(0,255,204,0.35);
-      --shadow:0 10px 30px rgba(0,0,0,0.55); --radius:16px;
-    }
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(1200px 800px at 10% -10%, rgba(0,255,204,0.06), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(0,255,204,0.05), transparent 60%),
-        var(--bg);
-      color:var(--text);
-      display:flex; align-items:center; justify-content:center; padding:28px;
-    }
-    .container{ width:100%; max-width:1150px; }
-    header{ text-align:center; margin-bottom:24px; }
-    .title{
-      font-size:clamp(1.8rem,2.5vw,2.4rem); line-height:1.15; margin:0; letter-spacing:.4px;
-      color:var(--brand); text-shadow:0 0 18px var(--brand-weak);
-    }
-    .subtitle{ margin:8px auto 0; max-width:820px; color:#cafff5; opacity:.9; font-size:1rem; }
+      --bg-0:#0b0f10; /* base bg */
+      --bg-1:#081312; /* deep */
+      --brand:#00e6c7; /* neon teal */
+      --brand-2:#37ffd7; /* soft edge */
+      --text:#eafff7;
+      --muted:#a9ffe9;
+      --card:#0e1516;
+      --ring:rgba(0,230,199,.35);
+      --shadow:0 12px 40px rgba(0,0,0,.55);
+      --radius:16px;
+      --bd:1px solid rgba(0,230,199,.22);
+    }*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  /* DustClaim-like glow field */
+  background:
+    radial-gradient(1000px 600px at -10% -20%, rgba(0,230,199,.12), transparent 60%),
+    radial-gradient(900px 520px at 110% 0%, rgba(0,230,199,.10), transparent 60%),
+    conic-gradient(from 200deg at 80% 20%, rgba(0,230,199,.08), transparent 40%),
+    linear-gradient(180deg, #0a1112 0%, #070a0a 60%, #060808 100%);
+  min-height:100dvh;
+  display:flex;align-items:center;justify-content:center;
+  padding:28px;
+}
 
-    .grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:16px; }
-    @media (max-width:960px){ .grid{ grid-template-columns:repeat(8,1fr); } }
-    @media (max-width:640px){ .grid{ grid-template-columns:repeat(4,1fr); } body{ padding:18px; } }
+.wrap{width:100%;max-width:1160px}
 
-    .card{
-      grid-column:span 4;
-      position:relative; border-radius:var(--radius);
-      background:linear-gradient(180deg,rgba(0,255,204,0.08),rgba(0,0,0,0.2)),var(--card-bg);
-      border:1px solid rgba(0,255,204,0.22); padding:18px;
-      box-shadow:var(--shadow),0 0 0 2px rgba(0,255,204,0.06) inset;
-      overflow:hidden; transition:transform .25s, box-shadow .25s, border-color .25s, background .25s;
-      isolation:isolate; min-height:152px; display:flex; flex-direction:column; justify-content:space-between;
-    }
-    .card:hover{
-      transform:translateY(-2px);
-      border-color:rgba(0,255,204,0.45);
-      box-shadow:var(--shadow),0 0 0 2px rgba(0,255,204,0.12) inset,0 0 28px var(--ring);
-    }
-    .card::before{
-      content:""; position:absolute; inset:0; background-position:center; background-size:cover; background-repeat:no-repeat;
-      opacity:.18; filter:contrast(105%) saturate(105%) blur(.2px); z-index:-1; transition:opacity .25s;
-    }
-    .card:hover::before{ opacity:.24; }
-    .card::after{
-      content:""; position:absolute; inset:0;
-      background:radial-gradient(600px 250px at 20% -10%, rgba(0,255,204,0.15), transparent 40%),
-                 linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.55));
-      z-index:-1;
-    }
+header{ text-align:center; margin-bottom:24px; }
+h1{
+  margin:0 0 6px 0;
+  font-size:clamp(1.9rem,2.8vw,2.6rem);
+  color:var(--brand);
+  text-shadow:0 0 24px rgba(0,230,199,.35);
+  letter-spacing:.2px;
+}
+.sub{ color:#cffff3; opacity:.92; margin:0; font-size:1rem; }
 
-    .eyebrow{ font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); opacity:.9; margin-bottom:6px; }
-    .card h3{ margin:0 0 8px 0; font-size:1.15rem; color:#d5fff7; text-shadow:0 0 6px rgba(0,255,204,0.25); }
-    .card p{ margin:0 0 14px 0; font-size:.95rem; color:#c7fff2; opacity:.9; }
+.grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:16px; }
+@media (max-width:960px){ .grid{ grid-template-columns:repeat(8,1fr);} }
+@media (max-width:640px){ .grid{ grid-template-columns:repeat(4,1fr);} body{padding:18px} }
 
-    .actions{ display:flex; gap:10px; flex-wrap:wrap; }
-    .btn{
-      appearance:none; border:1px solid var(--brand); background:rgba(0,255,204,0.06); color:var(--brand);
-      padding:10px 14px; border-radius:12px; font-size:.95rem; text-decoration:none;
-      transition:background .25s, box-shadow .25s, transform .15s; box-shadow:0 0 8px var(--brand-weak);
-      will-change:transform;
-    }
-    .btn:hover{ background:rgba(0,255,204,0.12); box-shadow:0 0 14px rgba(0,255,204,0.7); transform:translateY(-1px); }
-    .btn.secondary{ border-color:rgba(0,255,204,0.35); color:#d7fff7; background:rgba(0,0,0,0.25); }
-    .btn.block{ width:100%; text-align:center; }
+.card{
+  grid-column:span 4; position:relative; overflow:hidden;
+  border-radius:var(--radius);
+  background:linear-gradient(180deg, rgba(0,230,199,.07), rgba(0,0,0,.18)), var(--card);
+  border:var(--bd);
+  box-shadow:var(--shadow), 0 0 0 2px rgba(0,230,199,.06) inset;
+  padding:18px; min-height:152px; isolation:isolate;
+  display:flex;flex-direction:column;justify-content:space-between;
+  transition:transform .25s, box-shadow .25s, border-color .25s, background .25s;
+}
+.card:hover{ transform:translateY(-2px); border-color:rgba(0,230,199,.45); box-shadow:var(--shadow), 0 0 0 2px rgba(0,230,199,.12) inset, 0 0 28px var(--ring); }
 
-    .span-6{ grid-column:span 6; }
-    .span-12{ grid-column:span 12; }
-    @media (max-width:960px){ .span-6,.span-12,.card{ grid-column:span 8; } }
-    @media (max-width:640px){ .span-6,.span-12,.card{ grid-column:span 4; } .card{ min-height:140px; } }
+/* image/texture layer */
+.card::before{
+  content:""; position:absolute; inset:0; z-index:-1; opacity:.18;
+  background-position:center; background-size:cover; background-repeat:no-repeat;
+  filter:contrast(105%) saturate(105%) blur(.2px); transition:opacity .25s;
+}
+.card:hover::before{ opacity:.24; }
 
-    .bg-etherscan::before { background-image:linear-gradient(60deg,#003b3b,#001616); }
-    .bg-hfv-token::before { background-image:linear-gradient(60deg,#022b26,#001311); }
-    .bg-seedsale::before { background-image:linear-gradient(60deg,#003a2f,#001512); }
-    .bg-github::before { background-image:linear-gradient(60deg,#08222a,#041014); }
-    .bg-whitepaper::before{ background-image:linear-gradient(60deg,#0c2430,#06151c); }
-    .bg-website::before { background-image:linear-gradient(60deg,#05231e,#031312); }
-    .bg-discord::before { background-image:linear-gradient(60deg,#13233a,#0a1423); }
-    .bg-dentity::before { background-image:linear-gradient(60deg,#152a2a,#0a1515); }
-    .bg-twitter::before { background-image:linear-gradient(60deg,#00313c,#00171b); }
+/* readability overlay */
+.card::after{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background: radial-gradient(600px 250px at 20% -10%, rgba(0,230,199,.16), transparent 40%),
+              linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.33) 60%, rgba(0,0,0,.52));
+}
 
-    .bg-dustclaim::before{
-      background-image:
-        radial-gradient(600px 200px at 10% 0%, rgba(0,255,204,0.25), transparent 40%),
-        linear-gradient(60deg,#00383a,#001b1d);
-      opacity:.22; filter:contrast(110%) saturate(110%);
-    }
-    .bg-hfvhub::before{
-      background-image:
-        radial-gradient(500px 160px at 85% 10%, rgba(0,255,204,0.22), transparent 38%),
-        linear-gradient(60deg,#0b2d25,#031412);
-      opacity:.20;
-    }
+.eyebrow{ font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); opacity:.9; margin-bottom:6px; }
+.card h3{ margin:0 0 8px 0; font-size:1.15rem; color:#d2fff4; text-shadow:0 0 6px rgba(0,230,199,.22); }
+.card p{ margin:0 0 14px 0; font-size:.95rem; color:#c8fff2; opacity:.92; }
 
-    .pulse-ring{ position:relative; }
-    .pulse-ring::after{
-      content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
-      box-shadow:0 0 0 0 rgba(0,255,204,0.28); animation:ring 2.6s ease-in-out infinite; z-index:-2;
-    }
-    @keyframes ring{
-      0%{ box-shadow:0 0 0 0 rgba(0,255,204,0.35); }
-      70%{ box-shadow:0 0 0 12px rgba(0,255,204,0.0); }
-      100%{ box-shadow:0 0 0 0 rgba(0,255,204,0.0); }
-    }
+.actions{ display:flex; gap:10px; flex-wrap:wrap; }
+.btn{ appearance:none; border:1px solid var(--brand); background:rgba(0,230,199,.06); color:var(--brand); padding:10px 14px; border-radius:12px; font-size:.95rem; text-decoration:none; transition:background .25s, box-shadow .25s, transform .15s; box-shadow:0 0 8px rgba(0,230,199,.38); }
+.btn:hover{ background:rgba(0,230,199,.12); box-shadow:0 0 14px rgba(0,230,199,.7); transform:translateY(-1px); }
+.btn.secondary{ border-color:rgba(0,230,199,.35); color:#eafff7; background:rgba(0,0,0,.25); }
+.btn.block{ width:100%; text-align:center; }
 
-    a:focus-visible,.btn:focus-visible{
-      outline:2px solid var(--brand); outline-offset:2px;
-      box-shadow:0 0 0 6px rgba(0,255,204,0.2); border-radius:12px;
-    }
+.span-6{ grid-column:span 6; }
+.span-12{ grid-column:span 12; }
+@media (max-width:960px){ .card,.span-6,.span-12{ grid-column:span 8; } }
+@media (max-width:640px){ .card,.span-6,.span-12{ grid-column:span 4; } .card{min-height:140px} }
+
+/* themed backgrounds */
+.bg-dustclaim::before{
+  background-image:
+    radial-gradient(600px 200px at 10% 0%, rgba(0,230,199,.26), transparent 40%),
+    linear-gradient(60deg, #073d3e, #041d1e);
+}
+.bg-hfvhub::before{ background-image: radial-gradient(520px 160px at 85% 10%, rgba(0,230,199,.22), transparent 38%), linear-gradient(60deg, #0b2d25, #031412); }
+.bg-etherscan::before{ background-image: linear-gradient(60deg, #003b3b, #001616); }
+.bg-hfv-token::before{ background-image: linear-gradient(60deg, #022b26, #001311); }
+.bg-seedsale::before{ background-image: linear-gradient(60deg, #003a2f, #001512); }
+.bg-github::before{ background-image: linear-gradient(60deg, #08222a, #041014); }
+.bg-whitepaper::before{background-image: linear-gradient(60deg, #0c2430, #06151c); }
+.bg-website::before{ background-image: linear-gradient(60deg, #05231e, #031312); }
+.bg-discord::before{ background-image: linear-gradient(60deg, #13233a, #0a1423); }
+.bg-dentity::before{ background-image: linear-gradient(60deg, #152a2a, #0a1515); }
+.bg-twitter::before{ background-image: linear-gradient(60deg, #00313c, #00171b); }
+
+/* soft pulse ring for featured */
+.pulse-ring{ position:relative; }
+.pulse-ring::after{ content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px); box-shadow:0 0 0 0 rgba(0,230,199,.26); animation:ring 2.8s ease-in-out infinite; z-index:-2; }
+@keyframes ring{ 0%{box-shadow:0 0 0 0 rgba(0,230,199,.34);} 70%{box-shadow:0 0 0 12px rgba(0,230,199,0);} 100%{box-shadow:0 0 0 0 rgba(0,230,199,0);} }
+
+a:focus-visible,.btn:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; box-shadow:0 0 0 6px rgba(0,230,199,.2); border-radius:12px; }
+
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <header>
-      <h1 class="title">Andrei Habliuc .eth</h1>
-      <p class="subtitle">Ethereum Builder • Smart Contracts • DApps</p>
-    </header>
+      <h1>Andrei Habliuc .eth</h1>
+      <p class="sub">Ethereum Builder • Smart Contracts • DApps</p>
+    </header><main class="grid">
+  <!-- FEATURED: DustClaim -->
+  <section class="card span-6 bg-dustclaim pulse-ring">
+    <div>
+      <div class="eyebrow">App</div>
+      <h3>DustClaim.xyz</h3>
+      <p>Claim and track eligible rewards in a streamlined Web3 UX, built with speed and clarity.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://dustclaim.xyz/" target="_blank" rel="noopener">Open DustClaim</a>
+      <a class="btn secondary" href="https://dustclaim.xyz/" target="_blank" rel="noopener">Learn More</a>
+    </div>
+  </section>
 
-    <main class="grid">
-      <section class="card span-6 bg-dustclaim pulse-ring">
-        <div>
-          <div class="eyebrow">App</div>
-          <h3>DustClaim.xyz</h3>
-          <p>Claim and track eligible rewards in a streamlined Web3 UX, built with speed and clarity.</p>
-        </div>
-        <div class="actions">
-          <a class="btn" href="https://dustclaim.xyz/" target="_blank" rel="noopener">Open DustClaim</a>
-          <a class="btn secondary" href="https://dustclaim.xyz/" target="_blank" rel="noopener">Learn More</a>
-        </div>
-      </section>
+  <!-- FEATURED: HFV Hub -->
+  <section class="card span-6 bg-hfvhub pulse-ring">
+    <div>
+      <div class="eyebrow">App</div>
+      <h3>HFV Hub</h3>
+      <p>The central hub for HFV ecosystem tools, stats, and quick links — optimized for mobile and desktop.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://hfv-hub.org/" target="_blank" rel="noopener">Open HFV Hub</a>
+      <a class="btn secondary" href="https://hfv-hub.org/" target="_blank" rel="noopener">Overview</a>
+    </div>
+  </section>
 
-      <section class="card span-6 bg-hfvhub pulse-ring">
-        <div>
-          <div class="eyebrow">App</div>
-          <h3>HFV Hub</h3>
-          <p>The central hub for HFV ecosystem tools, stats, and quick links — optimized for mobile and desktop.</p>
-        </div>
-        <div class="actions">
-          <a class="btn" href="https://hfv-hub.org/" target="_blank" rel="noopener">Open HFV Hub</a>
-          <a class="btn secondary" href="https://hfv-hub.org/" target="_blank" rel="noopener">Overview</a>
-        </div>
-      </section>
+  <section class="card bg-etherscan">
+    <div>
+      <div class="eyebrow">Explorer</div>
+      <h3>Primary EOA on Etherscan</h3>
+      <p>Audit on-chain activity, contract interactions, and transaction history.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://etherscan.io/address/0x25b3ea33069428dcd1f268f1C6139701f1dc0137" target="_blank" rel="noopener">View Address</a>
+    </div>
+  </section>
 
-      <section class="card bg-etherscan">
-        <div>
-          <div class="eyebrow">Explorer</div>
-          <h3>Primary EOA on Etherscan</h3>
-          <p>Audit on-chain activity, contract interactions, and transaction history.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://etherscan.io/address/0x25b3ea33069428dcd1f268f1C6139701f1dc0137" target="_blank" rel="noopener">View Address</a>
-        </div>
-      </section>
+  <section class="card bg-hfv-token">
+    <div>
+      <div class="eyebrow">Token</div>
+      <h3>HFV Token</h3>
+      <p>Explore the verified HFV ERC-20 contract, holders, and transfers.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://etherscan.io/token/0xeAb3B66a24bD99171E0a854b6dA215CE3A7FFa98" target="_blank" rel="noopener">View on Etherscan</a>
+    </div>
+  </section>
 
-      <section class="card bg-hfv-token">
-        <div>
-          <div class="eyebrow">Token</div>
-          <h3>HFV Token</h3>
-          <p>Explore the verified HFV ERC-20 contract, holders, and transfers.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://etherscan.io/token/0xeAb3B66a24bD99171E0a854b6dA215CE3A7FFa98" target="_blank" rel="noopener">View on Etherscan</a>
-        </div>
-      </section>
+  <section class="card bg-seedsale">
+    <div>
+      <div class="eyebrow">Sale</div>
+      <h3>HFV Seed Sale</h3>
+      <p>Participate in the HFV early allocation with a clean, mobile-first flow.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://hfvseedsale.org/" target="_blank" rel="noopener">Launch App</a>
+    </div>
+  </section>
 
-      <section class="card bg-seedsale">
-        <div>
-          <div class="eyebrow">Sale</div>
-          <h3>HFV Seed Sale</h3>
-          <p>Participate in the HFV early allocation with a clean, mobile-first flow.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://hfvseedsale.org/" target="_blank" rel="noopener">Launch App</a>
-        </div>
-      </section>
+  <section class="card bg-github">
+    <div>
+      <div class="eyebrow">Code</div>
+      <h3>SeedSale Repository</h3>
+      <p>Source code for the Seed Sale DApp, contracts, and utilities.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://github.com/VTHash/SeedSale" target="_blank" rel="noopener">Open GitHub</a>
+    </div>
+  </section>
 
-      <section class="card bg-github">
-        <div>
-          <div class="eyebrow">Code</div>
-          <h3>SeedSale Repository</h3>
-          <p>Source code for the Seed Sale DApp, contracts, and utilities.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://github.com/VTHash/SeedSale" target="_blank" rel="noopener">Open GitHub</a>
-        </div>
-      </section>
+  <section class="card bg-whitepaper">
+    <div>
+      <div class="eyebrow">Docs</div>
+      <h3>HFV Whitepaper (PDF)</h3>
+      <p>Tokenomics, staking mechanics, vesting, and the HFV ecosystem vision.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://github.com/VTHash/HFV_Whitepaper/raw/main/HFV_Whitepaper_v4.pdf" target="_blank" rel="noopener">Download PDF</a>
+    </div>
+  </section>
 
-      <section class="card bg-whitepaper">
-        <div>
-          <div class="eyebrow">Docs</div>
-          <h3>HFV Whitepaper (PDF)</h3>
-          <p>Tokenomics, staking mechanics, vesting, and the HFV ecosystem vision.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://github.com/VTHash/HFV_Whitepaper/raw/main/HFV_Whitepaper_v4.pdf" target="_blank" rel="noopener">Download PDF</a>
-        </div>
-      </section>
+  <section class="card bg-website">
+    <div>
+      <div class="eyebrow">Site</div>
+      <h3>HFV Protocol Website</h3>
+      <p>Learn about HFV, roadmap, audits, and how to get involved.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://hfvprotocol.org/" target="_blank" rel="noopener">Visit Site</a>
+    </div>
+  </section>
 
-      <section class="card bg-website">
-        <div>
-          <div class="eyebrow">Site</div>
-          <h3>HFV Protocol Website</h3>
-          <p>Learn about HFV, roadmap, audits, and how to get involved.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://hfvprotocol.org/" target="_blank" rel="noopener">Visit Site</a>
-        </div>
-      </section>
+  <section class="card bg-discord">
+    <div>
+      <div class="eyebrow">Community</div>
+      <h3>Discord Server</h3>
+      <p>Join the HFV community, get updates, and collaborate in real time.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://discord.gg/Be4mQEFN" target="_blank" rel="noopener">Join Discord</a>
+    </div>
+  </section>
 
-      <section class="card bg-discord">
-        <div>
-          <div class="eyebrow">Community</div>
-          <h3>Discord Server</h3>
-          <p>Join the HFV community, get updates, and collaborate in real time.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://discord.gg/Be4mQEFN" target="_blank" rel="noopener">Join Discord</a>
-        </div>
-      </section>
+  <section class="card bg-dentity">
+    <div>
+      <div class="eyebrow">Identity</div>
+      <h3>Verify with Dentity</h3>
+      <p>Portable identity verification to increase trust across HFV apps.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://app.dentity.com/andreihabliuc.eth" target="_blank" rel="noopener">Verify Identity</a>
+    </div>
+  </section>
 
-      <section class="card bg-dentity">
-        <div>
-          <div class="eyebrow">Identity</div>
-          <h3>Verify with Dentity</h3>
-          <p>Portable identity verification to increase trust across HFV apps.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://app.dentity.com/andreihabliuc.eth" target="_blank" rel="noopener">Verify Identity</a>
-        </div>
-      </section>
+  <section class="card bg-twitter">
+    <div>
+      <div class="eyebrow">Social</div>
+      <h3>@HFVProtocol on X</h3>
+      <p>Follow announcements, dev updates, and ecosystem news.</p>
+    </div>
+    <div class="actions">
+      <a class="btn block" href="https://x.com/HFVProtocol" target="_blank" rel="noopener">Follow on X</a>
+    </div>
+  </section>
+</main>
 
-      <section class="card bg-twitter">
-        <div>
-          <div class="eyebrow">Social</div>
-          <h3>@HFVProtocol on X</h3>
-          <p>Follow announcements, dev updates, and ecosystem news.</p>
-        </div>
-        <div class="actions">
-          <a class="btn block" href="https://x.com/HFVProtocol" target="_blank" rel="noopener">Follow on X</a>
-        </div>
-      </section>
-    </main>
   </div>
 </body>
 </html>
